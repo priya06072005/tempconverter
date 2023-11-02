@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url("background.jpg");
+        }
+        #container {
+            margin-top: 50px;
+        }
+        button{
+            width:132px;
+            height:40px;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+    <div id="container">
+        <label for="fahrenheit"><b><i>Fahrenheit:</i></b></label>&nbsp;&nbsp;&nbsp;
+        <input type="number" id="fahrenheit" placeholder="Enter Fahrenheit">&nbsp;&nbsp;&nbsp;
+        <button onclick="convertToCelsius()">Convert to Celsius</button><br>
+        <br>
+        <label for="celsius"><b><i>Celsius:</i></b></label>&nbsp;&nbsp;&nbsp;
+        <input type="number" id="celsius" placeholder="Enter Celsius">&nbsp;&nbsp;&nbsp;
+        <button onclick="convertToFahrenheit()">Convert to Fahrenheit</button>
+    </div>
+
+    <script>
+        function convertToCelsius() {
+            var fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
+            if (!isNaN(fahrenheit)) {
+                var celsius = (fahrenheit - 32) * 5/9;
+                document.getElementById("celsius").value = celsius.toFixed(2);
+            } else {
+                alert("Please enter a valid number for Fahrenheit.");
+            }
+        }
+
+        function convertToFahrenheit() {
+            var celsius = parseFloat(document.getElementById("celsius").value);
+            if (!isNaN(celsius)) {
+                var fahrenheit = (celsius * 9/5) + 32;
+                document.getElementById("fahrenheit").value = fahrenheit.toFixed(2);
+            } else {
+                alert("Please enter a valid number for Celsius.");
+            }
+        }
+    </script>
+</body>
+</html>
